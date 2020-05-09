@@ -1,0 +1,5 @@
+<?php
+
+print 'HELLO WORLD. WELCOME TO MY FIRST PAGE OF TASK1';
+
+?>
