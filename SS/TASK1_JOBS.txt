@@ -1,0 +1,20 @@
+job1
+sudo cp -rfv * /root/jenkins_project/task1
+
+job2
+if docker ps -a | grep devenv
+then 
+echo "already running"
+else 
+sudo docker run -dt --name devenv -p 3001:80 -v /root/jenkins_proj/task1:/var/www/html apache
+fi
+
+job3
+sudo cp -rfv * /root/jenkins_project/task1/master_code
+
+if docker ps -a | grep prodenv
+then 
+echo "container already running"
+else
+sudo docker run -dt --name prodenv -p 3000:80 -v /root/jenkins_project/task1/master_code/:/var/www/html apache
+fi
